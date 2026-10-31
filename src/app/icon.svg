@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Kumaon Studio">
+  <rect width="64" height="64" rx="14" fill="#151613"/>
+  <g fill="none" stroke="#f6f5f1" stroke-width="6.5">
+    <path d="M22.5 15.5v33" stroke-linecap="square"/>
+    <path d="M43.5 15.5 26.5 32.8" stroke-linecap="square"/>
+    <path d="m30 29.5 14.5 19" stroke-linecap="square"/>
+  </g>
+  <circle cx="46.5" cy="50.5" r="2.6" fill="#a95034"/>
+</svg>
