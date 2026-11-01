@@ -26,7 +26,7 @@ export function HotelPreview({ priority = false }: { priority?: boolean }) {
               SITARA
             </span>
             <span className="hidden text-[0.82cqw] uppercase tracking-[0.24em] text-white/55 sm:inline">
-              Kumaon
+              Uttarakhand
             </span>
           </div>
           <div className="flex items-center gap-[2.2cqw] text-[0.9cqw] uppercase tracking-[0.18em] text-white/75">

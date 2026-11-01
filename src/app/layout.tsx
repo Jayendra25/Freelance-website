@@ -34,9 +34,9 @@ const instrumentSerif = localFont({
 
 const siteUrl = siteConfig.url.replace(/\/$/, "");
 const pageTitle =
-  "Web Design & Development in Bhimtal, Haldwani & Nainital | Kumaon Studio";
+  "Web Design & Development in Uttarakhand | Code Kailash";
 const pageDescription =
-  "A small web design and development team helping local businesses in Bhimtal, Haldwani and Nainital build thoughtful websites that earn trust and enquiries.";
+  "A small web design and development team helping businesses across Uttarakhand build thoughtful websites that earn trust and enquiries.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -50,14 +50,15 @@ export const metadata: Metadata = {
   creator: siteConfig.name,
   publisher: siteConfig.name,
   keywords: [
-    "web design Bhimtal",
-    "website development Haldwani",
-    "web designer Nainital",
-    "website design Uttarakhand",
+    "web design Uttarakhand",
+    "website development Uttarakhand",
+    "web designer Bhimtal",
+    "website design Haldwani",
+    "web design Nainital",
+    "website maintenance Uttarakhand",
     "local business website",
     "cafe website design",
     "hotel website design",
-    "website maintenance Kumaon",
   ],
   alternates: {
     canonical: "/",
@@ -107,10 +108,13 @@ const structuredData = {
       email: siteConfig.email,
       telephone: siteConfig.phoneDisplay,
       priceRange: "₹7,999–₹34,999",
-      areaServed: siteConfig.locations.map((name) => ({
-        "@type": "City",
-        name,
-      })),
+      areaServed: [
+        { "@type": "State", name: "Uttarakhand" },
+        ...siteConfig.locations.map((name) => ({
+          "@type": "City",
+          name,
+        })),
+      ],
       serviceType: [
         "Website design",
         "Website development",

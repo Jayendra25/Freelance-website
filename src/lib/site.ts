@@ -1,17 +1,18 @@
 /**
  * Single source of truth for the studio's identity and contact details.
  *
- * These are intentionally obvious placeholders. Replace them before launch.
- * The wordmark is typographic so the identity can be swapped without new art.
+ * Contact details are intentionally obvious placeholders. Replace them before
+ * launch. The logo mark lives in `public/images/code-kailash-mark.png`; the
+ * favicon is generated from `public/logo.png`.
  */
 export const siteConfig = {
-  name: "Kumaon Studio",
+  name: "Code Kailash",
   wordmark: {
-    primary: "kumaon",
-    secondary: "studio",
+    primary: "Code",
+    secondary: "Kailash",
   },
   description:
-    "A small web design and development team helping local businesses in Bhimtal, Haldwani and Nainital build thoughtful, dependable websites.",
+    "A small web design and development team helping businesses across Uttarakhand build thoughtful, dependable websites.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://your-domain.com",
   email: "hello@yourdomain.com",
   phoneDisplay: "+91 00000 00000",
@@ -19,9 +20,9 @@ export const siteConfig = {
   /** Digits only, including country code. Replace before launch. */
   whatsappNumber: "910000000000",
   locations: ["Bhimtal", "Haldwani", "Nainital"] as const,
-  locationLine: "Bhimtal · Haldwani · Nainital",
-  region: "Kumaon, Uttarakhand",
-  serviceAreas: ["Bhimtal", "Haldwani", "Nainital", "Kumaon region", "Across India"] as const,
+  locationLine: "Uttarakhand",
+  region: "Uttarakhand, India",
+  serviceAreas: ["Uttarakhand", "Bhimtal", "Haldwani", "Nainital", "Across India"] as const,
 } as const;
 
 export type NavItem = {
@@ -44,4 +45,4 @@ export function whatsappHref(message: string): string {
 }
 
 export const defaultWhatsAppMessage =
-  "Hello Kumaon Studio, I'd like to discuss a website for my business.";
+  "Hello Code Kailash, I'd like to discuss a website for my business.";

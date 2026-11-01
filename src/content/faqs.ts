@@ -37,8 +37,8 @@ export const faqs: readonly FaqItem[] = [
       "Yes. Booking engines, payment gateways, admin dashboards, inventory management, advanced SEO and copywriting can be quoted separately once we understand the requirement. We’ll tell you honestly if something is not worth the cost for your stage of business.",
   },
   {
-    question: "Do you work with businesses outside Bhimtal?",
+    question: "Do you work with businesses outside Uttarakhand?",
     answer:
-      "Yes. We’re based in the Kumaon region and work with businesses in Bhimtal, Haldwani, Nainital and elsewhere in India. Most of the process can be handled over calls, WhatsApp and email, with in-person meetings where practical.",
+      "Yes. We’re based in Uttarakhand and work with businesses in Bhimtal, Haldwani, Nainital and elsewhere in India. Most of the process can be handled over calls, WhatsApp and email, with in-person meetings where practical.",
   },
 ];

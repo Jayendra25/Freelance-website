@@ -1,7 +1,7 @@
-# Kumaon Studio — agency website
+# Code Kailash — agency website
 
 A single-page website for a small web design and development team working with
-local businesses in Bhimtal, Haldwani and Nainital.
+businesses across Uttarakhand.
 
 Built with Next.js (App Router), strict TypeScript, Tailwind CSS, Framer Motion,
 GSAP + ScrollTrigger and Lucide icons.
@@ -36,15 +36,25 @@ Replace these before launch:
 
 | Placeholder | Where |
 | --- | --- |
-| `Kumaon Studio` wordmark | `siteConfig.name` / `siteConfig.wordmark` |
+| `Code Kailash` name | `siteConfig.name` / `siteConfig.wordmark` |
 | `hello@yourdomain.com` | `siteConfig.email` |
 | `+91 00000 00000` | `siteConfig.phoneDisplay`, `siteConfig.phoneHref` |
 | `910000000000` | `siteConfig.whatsappNumber` (digits only, with country code) |
 | `https://your-domain.com` | `NEXT_PUBLIC_SITE_URL` in `.env.local` and the fallback in `siteConfig.url` |
 
-The mark itself is typographic (`src/components/ui/Wordmark.tsx`) and the
-favicon is `src/app/icon.svg`, so the identity can be changed without new
-artwork.
+### Logo and favicon
+
+- Original artwork: `public/logo.png`.
+- Header/footer mark: `public/images/code-kailash-mark.png` (trimmed, transparent).
+- Favicon: `src/app/icon.png`; Apple touch icon: `src/app/apple-icon.png`.
+- PWA icons: `public/icon-192.png` and `public/icon-512.png`.
+
+All derivatives are generated from `public/logo.png`. If the logo changes,
+regenerate the trimmed transparent mark and the icon sizes from the new file,
+then keep the file names the same so no components need editing.
+
+The name itself comes from `siteConfig.name` / `siteConfig.wordmark`, so the
+header, footer, menu and metadata all update together.
 
 Search the codebase for `yourdomain` and `00000` after editing to confirm
 nothing was missed.
@@ -134,7 +144,7 @@ Both respect `prefers-reduced-motion`. GSAP work is wrapped in
 - Dynamic OG image at `src/app/opengraph-image.tsx`.
 - `src/app/sitemap.ts`, `src/app/robots.ts`, `src/app/manifest.ts`.
 - JSON-LD `ProfessionalService`, `WebSite` and `FAQPage` in the root layout.
-- Local keywords target Bhimtal, Haldwani, Nainital and the Kumaon region.
+- Local keywords target Uttarakhand, including Bhimtal, Haldwani and Nainital.
 
 No guaranteed-ranking or revenue claims are made anywhere on the site.
 

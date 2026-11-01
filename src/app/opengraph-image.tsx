@@ -6,7 +6,7 @@ import { ImageResponse } from "next/og";
 import { siteConfig } from "@/lib/site";
 
 export const alt =
-  "Kumaon Studio — thoughtful websites for local businesses in Bhimtal, Haldwani and Nainital";
+  "Code Kailash — thoughtful websites for businesses across Uttarakhand";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -18,11 +18,19 @@ async function loadFont(file: string): Promise<ArrayBuffer> {
   ) as ArrayBuffer;
 }
 
+async function loadLogo(): Promise<string> {
+  const buffer = await readFile(
+    path.join(process.cwd(), "public/images/code-kailash-mark.png"),
+  );
+  return `data:image/png;base64,${buffer.toString("base64")}`;
+}
+
 export default async function OpengraphImage() {
-  const [regular, medium, serif] = await Promise.all([
+  const [regular, medium, serif, logo] = await Promise.all([
     loadFont("Inter-Regular.woff"),
     loadFont("Inter-Medium.woff"),
     loadFont("InstrumentSerif-Italic.woff"),
+    loadLogo(),
   ]);
 
   return new ImageResponse(
@@ -49,11 +57,27 @@ export default async function OpengraphImage() {
             letterSpacing: "-0.04em",
           }}
         >
-          <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
-            <span style={{ fontWeight: 500 }}>kumaon</span>
-            <span style={{ fontFamily: "Instrument Serif", fontSize: 26 }}>
-              studio
-            </span>
+          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+            <img
+              src={logo}
+              alt=""
+              width={79}
+              height={46}
+              style={{ display: "block" }}
+            />
+            <div
+              style={{
+                display: "flex",
+                alignItems: "baseline",
+                gap: 8,
+                fontSize: 22,
+              }}
+            >
+              <span style={{ fontWeight: 500 }}>Code</span>
+              <span style={{ fontFamily: "Instrument Serif", fontSize: 29 }}>
+                Kailash
+              </span>
+            </div>
           </div>
           <div
             style={{
@@ -63,7 +87,7 @@ export default async function OpengraphImage() {
               fontSize: 13,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "#6f7069",
+              color: "#686961",
             }}
           >
             <span
@@ -74,7 +98,7 @@ export default async function OpengraphImage() {
                 background: "#3e4a3b",
               }}
             />
-            Independent web studio · Kumaon
+            Independent web studio · Uttarakhand
           </div>
         </div>
 
@@ -108,11 +132,12 @@ export default async function OpengraphImage() {
               marginTop: 30,
               fontSize: 19,
               lineHeight: 1.6,
-              color: "#6f7069",
+              color: "#686961",
               maxWidth: 760,
             }}
           >
-            Thoughtful design and dependable development for local businesses.
+            Thoughtful design and dependable development for businesses across
+            Uttarakhand.
           </div>
         </div>
 
@@ -126,10 +151,10 @@ export default async function OpengraphImage() {
             fontSize: 13,
             letterSpacing: "0.16em",
             textTransform: "uppercase",
-            color: "#6f7069",
+            color: "#686961",
           }}
         >
-          <span>Bhimtal · Haldwani · Nainital</span>
+          <span>Uttarakhand · India</span>
           <span style={{ color: "#151613" }}>{siteConfig.url.replace(/^https?:\/\//, "")}</span>
         </div>
       </div>
