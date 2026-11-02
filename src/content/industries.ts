@@ -7,7 +7,7 @@ export const industries: readonly Industry[] = [
     title: "Cafes & Restaurants",
     description:
       "Menus, food galleries, timings, location and table enquiries — presented the way your space feels.",
-    tags: ["Menus", "Food galleries", "Timings", "Directions", "WhatsApp", "Table enquiries"],
+    tags: ["Menus", "Food galleries", "Timings", "Directions", "Enquiries", "Table enquiries"],
     image: "/images/cafe-interior.webp",
     imageAlt: "Warm, plant-filled cafe interior with wooden tables and pendant lights",
     accent: "#a95034",

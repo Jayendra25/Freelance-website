@@ -108,7 +108,7 @@ function buildPlainText(payload: EnquiryPayload): string {
     "",
     `Name: ${payload.name}`,
     `Business: ${payload.businessName || "—"}`,
-    `Phone: ${payload.phone}`,
+    `Phone: ${payload.phone || "—"}`,
     `Email: ${payload.email}`,
     `Category: ${payload.category}`,
     `Service: ${payload.service}`,
@@ -124,7 +124,7 @@ function buildHtml(payload: EnquiryPayload): string {
   const rows: ReadonlyArray<readonly [string, string]> = [
     ["Name", payload.name],
     ["Business", payload.businessName || "—"],
-    ["Phone", payload.phone],
+    ["Phone", payload.phone || "—"],
     ["Email", payload.email],
     ["Category", payload.category],
     ["Service", payload.service],
@@ -219,7 +219,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         error:
-          "You’ve sent several enquiries in a short time. Please wait a few minutes, or message us on WhatsApp.",
+          "You’ve sent several enquiries in a short time. Please wait a few minutes and try again.",
       },
       {
         status: 429,
@@ -279,26 +279,26 @@ export async function POST(request: Request) {
 
   const webhookUrl = process.env.ENQUIRY_WEBHOOK_URL?.trim();
   const resendKey = process.env.RESEND_API_KEY?.trim();
-  const toEmail = process.env.ENQUIRY_TO_EMAIL?.trim();
+  const toEmail = process.env.ENQUIRY_TO_EMAIL?.trim() || siteConfig.email;
   const fromEmail =
     process.env.ENQUIRY_FROM_EMAIL?.trim() || "onboarding@resend.dev";
 
   try {
     if (webhookUrl) {
       await deliverToWebhook(payload, webhookUrl);
-    } else if (resendKey && toEmail) {
+    } else if (resendKey) {
       await deliverToResend(payload, resendKey, toEmail, fromEmail);
     } else if (process.env.NODE_ENV !== "production") {
       await persistLocally(payload);
       console.info(`${LOG_PREFIX} stored locally as ${payload.reference}`);
     } else {
       console.error(
-        `${LOG_PREFIX} no delivery method configured. Set ENQUIRY_WEBHOOK_URL or RESEND_API_KEY + ENQUIRY_TO_EMAIL.`,
+        `${LOG_PREFIX} no delivery method configured. Set ENQUIRY_WEBHOOK_URL or RESEND_API_KEY.`,
       );
       return NextResponse.json(
         {
           error:
-            "Our enquiry inbox isn’t connected yet. Please email or WhatsApp us directly — the links are beside the form.",
+            "Our enquiry inbox isn’t connected yet. Please email us directly — the address is beside the form.",
         },
         { status: 503 },
       );
@@ -311,7 +311,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         error:
-          "Your enquiry couldn’t be delivered just now. Please try again, or email / WhatsApp us directly.",
+          "Your enquiry couldn’t be delivered just now. Please try again, or email us directly.",
       },
       { status: 502 },
     );

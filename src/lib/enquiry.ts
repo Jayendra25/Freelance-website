@@ -85,10 +85,8 @@ export function validateEnquiry(
   }
 
   const digitCount = phone.replace(/\D/g, "").length;
-  if (!phone) {
-    errors.phone = "Please enter a phone number.";
-  } else if (!phoneCharacters.test(phone) || digitCount < 7 || digitCount > 15) {
-    errors.phone = "Please enter a valid phone number.";
+  if (phone && (!phoneCharacters.test(phone) || digitCount < 7 || digitCount > 15)) {
+    errors.phone = "Please enter a valid phone number, or leave it blank.";
   }
 
   if (!email) {

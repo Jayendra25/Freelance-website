@@ -26,8 +26,9 @@ export function Pricing() {
           </Reveal>
           <Reveal delay={0.09} className="lg:col-span-4">
             <p className="max-w-[33ch] text-[14px] leading-[1.75] text-muted lg:pb-2">
-              Clear starting points, a written scope and a fixed quote before
-              work begins. Prices shown in INR.
+              Not sure which package fits? Tell us what your business needs and
+              we’ll recommend the right starting point with a clear, fixed
+              quote.
             </p>
           </Reveal>
         </div>
@@ -63,14 +64,7 @@ export function Pricing() {
                   ) : null}
                 </div>
 
-                <p className="mt-6 text-[clamp(1.55rem,2vw,2.05rem)] font-medium leading-none tracking-[-0.045em] tabular-nums">
-                  {pkg.price}
-                </p>
-                <p className="mt-2 text-[9px] uppercase tracking-[0.16em] text-muted">
-                  One-time project
-                </p>
-
-                <p className="mt-4 text-[12.5px] leading-[1.65] text-muted">
+                <p className="mt-6 text-[12.5px] leading-[1.65] text-muted">
                   {pkg.description}
                 </p>
 
@@ -97,8 +91,9 @@ export function Pricing() {
                   variant={pkg.recommended ? "primary" : "secondary"}
                   size="md"
                   className="mt-8 w-full"
+                  ariaLabel={`Contact us about the ${pkg.name}`}
                 >
-                  Discuss Your Project
+                  Contact us
                 </ButtonLink>
               </article>
             ))}
@@ -107,15 +102,14 @@ export function Pricing() {
 
         <div className="mt-8 grid gap-6 border-t border-line pt-6 lg:grid-cols-2 lg:gap-16">
           <p className="max-w-[62ch] text-[11px] leading-[1.75] text-muted">
-            These are introductory prices. Final quotations depend on page
-            count, content readiness, integrations, design complexity and
-            delivery requirements. Every build is responsive and handed over
-            with the access details you need.
+            Every project is quoted individually after a short conversation
+            about your goals, pages and features. The quote is fixed in writing
+            before work begins, so there are no surprises.
           </p>
           <p className="max-w-[62ch] text-[11px] leading-[1.75] text-muted">
-            Additional functionality such as booking engines, payment gateways,
-            admin dashboards, inventory management, advanced SEO and copywriting
-            is quoted separately once the requirement is clear.
+            Need something outside these packages — bookings, payments, admin
+            dashboards, inventory, advanced SEO or copywriting? Tell us and we’ll
+            include it in your quote.
           </p>
         </div>
       </div>

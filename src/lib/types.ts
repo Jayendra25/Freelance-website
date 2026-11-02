@@ -44,7 +44,6 @@ export type ProcessStep = {
 export type BuildPackage = {
   id: string;
   name: string;
-  price: string;
   description: string;
   features: readonly string[];
   recommended?: boolean;
@@ -52,7 +51,6 @@ export type BuildPackage = {
 
 export type CarePlan = {
   name: string;
-  price: string;
   summary: string;
   features: readonly string[];
 };

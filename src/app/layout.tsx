@@ -106,8 +106,7 @@ const structuredData = {
       description: pageDescription,
       url: siteUrl,
       email: siteConfig.email,
-      telephone: siteConfig.phoneDisplay,
-      priceRange: "₹7,999–₹34,999",
+      priceRange: `From ${siteConfig.startingPrice}`,
       areaServed: [
         { "@type": "State", name: "Uttarakhand" },
         ...siteConfig.locations.map((name) => ({
@@ -126,7 +125,7 @@ const structuredData = {
         "Local business websites",
         "Enquiry forms",
         "Google Maps integration",
-        "WhatsApp integration",
+        "Email contact integration",
       ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",

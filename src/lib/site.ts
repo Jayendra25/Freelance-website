@@ -1,9 +1,9 @@
 /**
  * Single source of truth for the studio's identity and contact details.
  *
- * Contact details are intentionally obvious placeholders. Replace them before
- * launch. The logo mark lives in `public/images/code-kailash-mark.png`; the
- * favicon is generated from `public/logo.png`.
+ * Email is the only published contact channel. The logo mark lives in
+ * `public/images/code-kailash-mark.png`; the favicon is generated from
+ * `public/logo.png`.
  */
 export const siteConfig = {
   name: "Code Kailash",
@@ -14,15 +14,13 @@ export const siteConfig = {
   description:
     "A small web design and development team helping businesses across Uttarakhand build thoughtful, dependable websites.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://your-domain.com",
-  email: "hello@yourdomain.com",
-  phoneDisplay: "+91 00000 00000",
-  phoneHref: "tel:+910000000000",
-  /** Digits only, including country code. Replace before launch. */
-  whatsappNumber: "910000000000",
+  email: "code4kailash@gmail.com",
   locations: ["Bhimtal", "Haldwani", "Nainital"] as const,
   locationLine: "Uttarakhand",
   region: "Uttarakhand, India",
   serviceAreas: ["Uttarakhand", "Bhimtal", "Haldwani", "Nainital", "Across India"] as const,
+  /** Lowest starting price shown on the site. */
+  startingPrice: "₹7,999",
 } as const;
 
 export type NavItem = {
@@ -40,9 +38,3 @@ export const navItems: readonly NavItem[] = [
   { label: "Contact", href: "#contact", sectionId: "contact" },
 ];
 
-export function whatsappHref(message: string): string {
-  return `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`;
-}
-
-export const defaultWhatsAppMessage =
-  "Hello Code Kailash, I'd like to discuss a website for my business.";

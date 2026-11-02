@@ -1,7 +1,7 @@
 import { ArrowUp } from "lucide-react";
 
 import { services } from "@/content/services";
-import { defaultWhatsAppMessage, navItems, siteConfig, whatsappHref } from "@/lib/site";
+import { navItems, siteConfig } from "@/lib/site";
 import { Wordmark } from "@/components/ui/Wordmark";
 
 /**
@@ -78,20 +78,10 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href={siteConfig.phoneHref}
+                  href="#contact"
                   className="text-[13px] text-ink-soft transition-colors hover:text-accent"
                 >
-                  {siteConfig.phoneDisplay}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={whatsappHref(defaultWhatsAppMessage)}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="text-[13px] text-ink-soft transition-colors hover:text-accent"
-                >
-                  WhatsApp
+                  Send an enquiry
                 </a>
               </li>
             </ul>

@@ -10,7 +10,7 @@ export function About() {
     >
       <div className="container-wide">
         <Reveal>
-          <SectionLabel index="08">About us</SectionLabel>
+          <SectionLabel index="09">About us</SectionLabel>
         </Reveal>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:items-end">

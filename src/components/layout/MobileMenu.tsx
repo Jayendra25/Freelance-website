@@ -5,7 +5,7 @@ import { ArrowUpRight, X } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 import { Wordmark } from "@/components/ui/Wordmark";
-import { navItems, siteConfig, whatsappHref, defaultWhatsAppMessage } from "@/lib/site";
+import { navItems, siteConfig } from "@/lib/site";
 
 type MobileMenuProps = {
   open: boolean;
@@ -168,21 +168,16 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                 </div>
                 <div>
                   <p className="text-[9px] uppercase tracking-[0.2em] text-muted">
-                    WhatsApp
+                    Service area
                   </p>
-                  <a
-                    href={whatsappHref(defaultWhatsAppMessage)}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="mt-1.5 block text-[13px] text-ink"
-                  >
-                    {siteConfig.phoneDisplay}
-                  </a>
+                  <p className="mt-1.5 text-[13px] text-ink">
+                    {siteConfig.locationLine}
+                  </p>
                 </div>
               </div>
 
               <p className="text-[10px] uppercase tracking-[0.2em] text-muted">
-                {siteConfig.locationLine}
+                Replies within one working day
               </p>
             </motion.div>
           </div>

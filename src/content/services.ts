@@ -12,7 +12,7 @@ export const services: readonly Service[] = [
       "Responsive layouts",
       "Business information and service pages",
       "Contact and enquiry forms",
-      "WhatsApp integration",
+      "Email contact integration",
       "Google Maps integration",
     ],
     visual: "build",

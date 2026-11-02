@@ -6,7 +6,7 @@ import {
   Check,
   ChevronDown,
   Loader2,
-  MessageCircle,
+  Mail,
 } from "lucide-react";
 import { useId, useRef, useState } from "react";
 
@@ -19,7 +19,6 @@ import {
   type EnquiryErrors,
   type EnquiryFields,
 } from "@/lib/enquiry";
-import { defaultWhatsAppMessage, siteConfig, whatsappHref } from "@/lib/site";
 import { buildMailto, cn } from "@/lib/utils";
 
 type SubmissionState =
@@ -210,7 +209,7 @@ export function EnquiryForm() {
   const fallbackBody = [
     `Name: ${values.name}`,
     `Business: ${values.businessName || "—"}`,
-    `Phone: ${values.phone}`,
+    `Phone: ${values.phone || "—"}`,
     `Email: ${values.email}`,
     `Category: ${values.category || "—"}`,
     `Service: ${values.service || "—"}`,
@@ -243,8 +242,8 @@ export function EnquiryForm() {
               </h3>
               <p className="mt-4 max-w-[40ch] text-[13px] leading-[1.75] text-muted">
                 We read every message ourselves and usually reply within one
-                working day. If it’s urgent, WhatsApp is the fastest way to reach
-                us.
+                working day. If your enquiry is urgent, email us directly and
+                we’ll get back to you as soon as we can.
               </p>
 
               {summaryLine ? (
@@ -262,15 +261,16 @@ export function EnquiryForm() {
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <a
-                href={whatsappHref(
-                  `Hello ${siteConfig.name}, I just sent an enquiry through your website.`,
+                href={buildMailto(
+                  "Website enquiry",
+                  summaryLine
+                    ? `Hello Code Kailash,\n\nI just sent an enquiry through your website.\n\n${summaryLine}`
+                    : "Hello Code Kailash, I just sent an enquiry through your website.",
                 )}
-                target="_blank"
-                rel="noreferrer noopener"
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-3 text-[12px] font-medium text-white transition-colors hover:bg-accent"
               >
-                <MessageCircle aria-hidden="true" className="h-3.5 w-3.5" />
-                Continue on WhatsApp
+                <Mail aria-hidden="true" className="h-3.5 w-3.5" />
+                Email us directly
               </a>
               <button
                 type="button"
@@ -368,7 +368,7 @@ export function EnquiryForm() {
                   htmlFor={fieldId("phone")}
                   className="block text-[10px] uppercase tracking-[0.14em] text-muted"
                 >
-                  Phone / WhatsApp *
+                  Phone (optional)
                 </label>
                 <input
                   id={fieldId("phone")}
@@ -589,21 +589,11 @@ export function EnquiryForm() {
                       <a
                         href={buildMailto(
                           "Website enquiry",
-                          fallbackBody || defaultWhatsAppMessage,
+                          fallbackBody,
                         )}
                         className="link-underline text-[11px] font-medium text-ink"
                       >
                         Email us directly
-                      </a>
-                      <a
-                        href={whatsappHref(
-                          fallbackBody || defaultWhatsAppMessage,
-                        )}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        className="link-underline text-[11px] font-medium text-ink"
-                      >
-                        Send on WhatsApp
                       </a>
                     </div>
                   </div>

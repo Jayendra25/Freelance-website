@@ -29,7 +29,7 @@ npm run typecheck  # tsc --noEmit
 
 Everything user-facing that identifies the studio lives in one file:
 
-- `src/lib/site.ts` — name, wordmark, email, phone, WhatsApp number, service
+- `src/lib/site.ts` — name, wordmark, contact email, starting price, service
   areas and site URL.
 
 Replace these before launch:
@@ -37,10 +37,13 @@ Replace these before launch:
 | Placeholder | Where |
 | --- | --- |
 | `Code Kailash` name | `siteConfig.name` / `siteConfig.wordmark` |
-| `hello@yourdomain.com` | `siteConfig.email` |
-| `+91 00000 00000` | `siteConfig.phoneDisplay`, `siteConfig.phoneHref` |
-| `910000000000` | `siteConfig.whatsappNumber` (digits only, with country code) |
+| `code4kailash@gmail.com` | `siteConfig.email` |
+| `₹7,999` | `siteConfig.startingPrice` (shown only in the starting-price section) |
 | `https://your-domain.com` | `NEXT_PUBLIC_SITE_URL` in `.env.local` and the fallback in `siteConfig.url` |
+
+Email is the only published contact channel. The site intentionally has no
+phone number or WhatsApp CTA; the enquiry form is the primary way to get in
+touch.
 
 ### Logo and favicon
 
@@ -56,8 +59,8 @@ then keep the file names the same so no components need editing.
 The name itself comes from `siteConfig.name` / `siteConfig.wordmark`, so the
 header, footer, menu and metadata all update together.
 
-Search the codebase for `yourdomain` and `00000` after editing to confirm
-nothing was missed.
+Search the codebase for `yourdomain` after editing to confirm nothing was
+missed.
 
 ## Content
 
@@ -106,15 +109,15 @@ success state unless the API confirms delivery.
 Delivery options (set one in `.env.local`, see `.env.example`):
 
 1. **Webhook** — `ENQUIRY_WEBHOOK_URL` receives a JSON `POST`.
-2. **Resend email** — set `RESEND_API_KEY`, `ENQUIRY_TO_EMAIL` and a verified
-   `ENQUIRY_FROM_EMAIL`.
+2. **Resend email** — set `RESEND_API_KEY` and a verified `ENQUIRY_FROM_EMAIL`.
+   Enquiries are sent to `ENQUIRY_TO_EMAIL`, which defaults to
+   `code4kailash@gmail.com`.
 3. **Local development fallback** — with nothing configured and
    `NODE_ENV !== "production"`, submissions are appended to
    `.enquiries/enquiries.jsonl` (git-ignored) so the flow can be tested.
 
 In production with no delivery method configured, the API returns `503` and the
-form tells the visitor to email or WhatsApp directly. There is no fake success
-state.
+form tells the visitor to email directly. There is no fake success state.
 
 The route also includes basic in-memory rate limiting (5 submissions per IP per
 10 minutes) and a honeypot field.

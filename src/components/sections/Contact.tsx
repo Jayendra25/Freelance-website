@@ -1,13 +1,9 @@
-import { ArrowUpRight, Mail, MapPin, MessageCircle } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 
 import { EnquiryForm } from "@/components/forms/EnquiryForm";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import {
-  defaultWhatsAppMessage,
-  siteConfig,
-  whatsappHref,
-} from "@/lib/site";
+import { siteConfig } from "@/lib/site";
 
 export function Contact() {
   return (
@@ -17,7 +13,7 @@ export function Contact() {
     >
       <div className="container-wide">
         <Reveal>
-          <SectionLabel index="10">Start a conversation</SectionLabel>
+          <SectionLabel index="11">Start a conversation</SectionLabel>
         </Reveal>
 
         <div className="mt-10 grid gap-12 lg:grid-cols-12 lg:gap-10">
@@ -38,35 +34,6 @@ export function Contact() {
 
             <Reveal delay={0.14}>
               <div className="mt-10 border-t border-line">
-                <a
-                  href={whatsappHref(defaultWhatsAppMessage)}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="group flex items-center justify-between gap-4 border-b border-line py-4"
-                >
-                  <span className="flex items-center gap-3.5">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-line bg-white text-accent transition-colors duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-white">
-                      <MessageCircle
-                        aria-hidden="true"
-                        className="h-3.5 w-3.5"
-                        strokeWidth={1.7}
-                      />
-                    </span>
-                    <span>
-                      <span className="block text-[9px] uppercase tracking-[0.18em] text-muted">
-                        WhatsApp — fastest
-                      </span>
-                      <span className="mt-0.5 block text-[13.5px] font-medium text-ink">
-                        {siteConfig.phoneDisplay}
-                      </span>
-                    </span>
-                  </span>
-                  <ArrowUpRight
-                    aria-hidden="true"
-                    className="h-4 w-4 text-muted transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink"
-                  />
-                </a>
-
                 <a
                   href={`mailto:${siteConfig.email}`}
                   className="group flex items-center justify-between gap-4 border-b border-line py-4"
@@ -130,8 +97,14 @@ export function Contact() {
             </Reveal>
             <Reveal delay={0.12}>
               <p className="mt-4 text-[10px] leading-[1.7] text-muted">
-                Prefer to talk first? Send a WhatsApp message with a sentence
-                about your business — no form, no pressure.
+                Prefer email? Write to{" "}
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="link-underline text-ink"
+                >
+                  {siteConfig.email}
+                </a>{" "}
+                with a sentence about your business — no form, no pressure.
               </p>
             </Reveal>
           </div>

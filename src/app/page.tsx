@@ -9,6 +9,7 @@ import { Pricing } from "@/components/sections/Pricing";
 import { Process } from "@/components/sections/Process";
 import { SelectedWork } from "@/components/sections/SelectedWork";
 import { Services } from "@/components/sections/Services";
+import { StartingPrice } from "@/components/sections/StartingPrice";
 
 export default function HomePage() {
   return (
@@ -20,6 +21,7 @@ export default function HomePage() {
       <SelectedWork />
       <Process />
       <Pricing />
+      <StartingPrice />
       <Maintenance />
       <About />
       <Faq />

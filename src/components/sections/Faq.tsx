@@ -20,7 +20,7 @@ export function Faq() {
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-[104px]">
               <Reveal>
-                <SectionLabel index="09">Questions</SectionLabel>
+                <SectionLabel index="10">Questions</SectionLabel>
               </Reveal>
               <Reveal delay={0.05}>
                 <h2 className="mt-10 max-w-[10ch] text-[clamp(2.4rem,4.4vw,4.3rem)] font-medium leading-[1.01] tracking-[-0.055em]">

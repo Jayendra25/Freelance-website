@@ -13,7 +13,7 @@ export function Maintenance() {
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-[104px]">
               <Reveal>
-                <SectionLabel index="07">Ongoing care</SectionLabel>
+                <SectionLabel index="08">Ongoing care</SectionLabel>
               </Reveal>
               <Reveal delay={0.05}>
                 <h2 className="mt-10 max-w-[12ch] text-[clamp(2.4rem,4.3vw,4.2rem)] font-medium leading-[1.02] tracking-[-0.052em]">
@@ -74,13 +74,19 @@ export function Maintenance() {
                           {plan.summary}
                         </p>
                       </div>
-                      <div className="sm:text-right">
-                        <p className="text-[24px] font-medium leading-none tracking-[-0.04em] tabular-nums text-ink">
-                          {plan.price}
+                      <div className="sm:pt-1 sm:text-right">
+                        <p className="mb-2 text-[9px] uppercase tracking-[0.16em] text-muted">
+                          Monthly care plan
                         </p>
-                        <p className="mt-1.5 text-[9px] uppercase tracking-[0.16em] text-muted">
-                          per month
-                        </p>
+                        <ButtonLink
+                          href="#contact"
+                          variant="secondary"
+                          size="sm"
+                          ariaLabel={`Contact us about ${plan.name}`}
+                          className="w-full sm:w-auto"
+                        >
+                          Contact us
+                        </ButtonLink>
                       </div>
                     </div>
 
